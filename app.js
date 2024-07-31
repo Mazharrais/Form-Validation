@@ -65,3 +65,12 @@ function validateName(){
         messageErorr.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
         return true;
     }
+
+    function validateForm(){
+    if(!validateName() || !validatePhone() || !validateEmail() || !validateMessage()){
+    submitErorr.style.display = 'block';
+    submitErorr.innerHTML = 'please fix error to submit';
+    setTimeout(function(){ submitErorr.style.display = 'none';},3000);
+    return false;
+    }
+    }
