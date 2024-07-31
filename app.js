@@ -6,7 +6,20 @@ var messageErorr = document.getElementById('message-error');
 var submitErorr = document.getElementById('submit-error');
 
 
-function validationName(){
-    var name = document.getElementById('contact-name').ariaValueMax;
+function validateName(){
+    var name = document.getElementById('contact-name').value;
     console.log(name);
-}
+    if(name.length == 0){
+        nameErorr.innerHTML = "Name is required...";
+        return false;
+    } 
+    if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+        nameErorr.innerHTML = "Write Full Name...";
+        return false;
+    }
+    nameErorr.innerHTML = "valid";
+    return true;
+
+
+
+    }
