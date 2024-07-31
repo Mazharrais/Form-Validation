@@ -17,9 +17,24 @@ function validateName(){
         nameErorr.innerHTML = "Write Full Name...";
         return false;
     }
-    nameErorr.innerHTML = "valid";
+    nameErorr.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
     return true;
+    }
 
-
-
+    function validatePhone(){
+        var phone = document.getElementById('contact-phone').value;
+        if(phone.length == 0){
+            phoneErorr.innerHTML = "Phone number is required";
+            return false;
+        }
+        if(phone.length !== 10){
+            phoneErorr.innerHTML = "Phone no should be 10 digits";
+            return false;
+        }
+        if(!phone.match(/^[0-9]{10}$/)){
+            phoneErorr.innerHTML = "only digits please";
+            return false;
+        }
+        phoneErorr.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
     }
