@@ -45,10 +45,23 @@ function validateName(){
             emailErorr.innerHTML = "email is required";
             return false;
         }
-        if(!email.match(/^[A-Za-z]\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
             emailErorr.innerHTML = 'email is invalid';
             return false;
         }
         emailErorr.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
+    }
+
+    function validateMessage(){
+        var message = document.getElementById('contact-message').value;
+        var required = 30;
+        var left = required - message.length;
+
+        if(left > 0){
+            messageErorr.innerHTML = left + 'more character is required';
+            return false;
+        }
+        messageErorr.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
         return true;
     }
